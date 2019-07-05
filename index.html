@@ -34,6 +34,7 @@
 <body>
     <div id="root"></div>
     <div id="list-render"></div>
+    <div id="list-object-render"></div>
     <div id="conditional-render"></div>
     <script type="text/babel">
 
@@ -86,6 +87,25 @@
         ReactDOM.render(
             <List list={listNames}/>,
             document.getElementById('list-render')
+        );
+
+        const objectList = [
+            {id: 1, name: "Aquiles", dad: "Peleu"},
+            {id: 2, name: "Apolo", dad: "Zeus"},
+            {id: 3, name: "Eros", dad: "Marte"},
+            {id: 4, name: "Zeus", dad: "Cronos"}
+        ];
+
+        const ListObject = ({list}) => (
+            <ul>
+                <h2>Object list:</h2>
+                {list.map((list, i) =><li key={list.id}> Nome: {list.name} | Dad: {list.dad}</li>)}
+            </ul>
+        )
+
+        ReactDOM.render(
+            <ListObject list={objectList}/>,
+            document.getElementById('list-object-render')
         );
 
         const Footer = ({show}) => (
