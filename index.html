@@ -33,8 +33,10 @@
 
 <body>
     <div id="root"></div>
+    <div id="list-render"></div>
     <div id="conditional-render"></div>
     <script type="text/babel">
+
         const Name = ({name}) => <h5>{name}</h5>;
 
         class App extends React.Component {
@@ -49,7 +51,7 @@
                     <div>
                         <h1 className="heading">React element</h1>
                         <hr />
-                        <h3>Names:</h3>
+                        <h3>List name:</h3>
                         <Name name="Aquiles"/>
                         <Name name="Zeus"/>
                         <Name name="Apolo"/>
@@ -59,6 +61,7 @@
                             <button onClick={this.changeBool}>Change</button>
                             <h3>Bool: {this.state.bool ? "TRUE" : "FALSE"}</h3>
                         </div>
+                        <hr/>
                     </div>
                 )
             }
@@ -69,8 +72,25 @@
             document.getElementById('root')
         );
 
+        const listNames = ["Aquiles", "Apolo", "Eros","Zeus"];
+
+        const List = ({list}) => (
+            <ul>
+                <h2>List names:</h2>
+                {list.map((name, i) =>
+                    <li key={i}> {name} </li>
+                )}
+            </ul>
+        )
+
+        ReactDOM.render(
+            <List list={listNames}/>,
+            document.getElementById('list-render')
+        );
+
         const Footer = ({show}) => (
             <div>
+                <hr/>
                 {show
                     ? <h1> TRUE </h1>
                     : <h1> FALSE </h1>
