@@ -12,10 +12,22 @@
     <script type="text/javascript">
         ReactDOM.render(
             React.createElement(
-                "h1",
-                {"style": {"color": "DodgerBlue"}},
-                "React element"),
-                document.getElementById("root")
+                'center', {
+                    'style': {
+                        'margin': '20px',
+                        'border-bottom': 'solid',
+                        'border-color': 'blue',
+                    }
+                },
+                React.createElement(
+                    'h1', {
+                        'style': {
+                            'color': 'DodgerBlue'
+                        }
+                    },
+                    'React element')
+            ),
+            document.getElementById('root')
         );
     </script>
 </body>
