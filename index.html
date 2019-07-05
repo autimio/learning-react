@@ -15,7 +15,8 @@
             text-align: justify;
         }
 
-        h1, h3 {
+        h1,
+        h3 {
             text-align: center;
         }
 
@@ -29,18 +30,23 @@
     <div id="root"></div>
     <script type="text/babel">
         const Name = ({name}) => <h3>{name}</h3>;
-        const Page = ({title}) => (
-            <div>
-                <h1 className="heading"> {title} </h1>
-                <Name name="Aquiles"/>
-                <Name name="Zeus"/>
-                <Name name="Apolo"/>
-                <Name name="Eros"/>
-            </div>
-        );
+
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <h1 className="heading">React element</h1>
+                        <Name name="Aquiles"/>
+                        <Name name="Zeus"/>
+                        <Name name="Apolo"/>
+                        <Name name="Eros"/>
+                    </div>
+                )
+            }
+        }
 
         ReactDOM.render(
-            <Page title="React element"/>,
+            <App/>,
             document.getElementById('root')
         );
     </script>
