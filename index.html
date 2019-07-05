@@ -33,11 +33,12 @@
 
 <body>
     <div id="root"></div>
+    <div id="conditional-render"></div>
     <script type="text/babel">
         const Name = ({name}) => <h5>{name}</h5>;
 
         class App extends React.Component {
-            state ={
+            state = {
                 bool: true
             }
 
@@ -66,6 +67,20 @@
         ReactDOM.render(
             <App/>,
             document.getElementById('root')
+        );
+
+        const Footer = ({show}) => (
+            <div>
+                {show
+                    ? <h1> TRUE </h1>
+                    : <h1> FALSE </h1>
+                }
+            </div>
+        );
+
+        ReactDOM.render(
+            <Footer show={false}/>,
+            document.getElementById('conditional-render')
         );
     </script>
 </body>
