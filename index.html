@@ -15,6 +15,10 @@
             text-align: justify;
         }
 
+        h1 {
+            text-align: center;
+        }
+
         p {
             text-indent: 50px;
         }
@@ -24,14 +28,17 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        const Heading = () => {
+        const Page = ({title}) => {
             return (
-                <h1 className="heading"> React element </h1>
+                <div>
+                    <h1 className="heading"> {title} </h1>
+                    <p className="main-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
             )
         };
 
         ReactDOM.render(
-            <Heading />,
+            <Page title="React element"/>,
             document.getElementById('root')
         );
     </script>
