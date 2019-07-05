@@ -32,6 +32,9 @@
         const Name = ({name}) => <h3>{name}</h3>;
 
         class App extends React.Component {
+            state ={
+                bool: false
+            }
             render() {
                 return (
                     <div>
@@ -40,6 +43,8 @@
                         <Name name="Zeus"/>
                         <Name name="Apolo"/>
                         <Name name="Eros"/>
+                        <hr/>
+                        <h3>Bool: {this.state.bool ? "TRUE" : "FALSE"}</h3>
                     </div>
                 )
             }
